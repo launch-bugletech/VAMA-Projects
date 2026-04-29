@@ -1,0 +1,2038 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us — VAMA Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #f2ede4;
+        --dark: #1a1a14;
+        --olive: #2e2e1e;
+        --gold: #b89a5a;
+        --gold-light: #d4b97a;
+        --warm-white: #faf8f3;
+        --mid: #5a5748;
+        --forest: #3a4a2e;
+        --border: rgba(184, 154, 90, 0.25);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--cream);
+        color: var(--dark);
+        font-family: "Jost", sans-serif;
+        font-weight: 300;
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 60px;
+        height: 72px;
+        background: rgba(26, 26, 20, 0.96);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(184, 154, 90, 0.15);
+      }
+
+      .nav-logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: var(--cream);
+        letter-spacing: 0.08em;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        font-size: 0.78rem;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(242, 237, 228, 0.7);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--gold);
+      }
+
+      .nav-cta {
+        background: var(--gold);
+        color: var(--dark);
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 10px 24px;
+        text-decoration: none;
+        transition: background 0.3s;
+      }
+
+      .nav-cta:hover {
+        background: var(--gold-light);
+      }
+
+      /* ── HERO ── */
+      .about-hero {
+        margin-top: 72px;
+        height: 60vh;
+        min-height: 440px;
+        background: var(--olive);
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+      }
+
+      .about-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(26, 26, 20, 0.85) 0%,
+          rgba(58, 74, 46, 0.4) 60%,
+          transparent 100%
+        );
+      }
+
+      .about-hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 70% 40%,
+            rgba(184, 154, 90, 0.08) 0%,
+            transparent 60%
+          ),
+          repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 40px,
+            rgba(184, 154, 90, 0.03) 40px,
+            rgba(184, 154, 90, 0.03) 41px
+          );
+      }
+
+      .about-hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 60px 80px;
+        max-width: 900px;
+      }
+
+      .hero-label {
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .hero-label::before {
+        content: "";
+        width: 32px;
+        height: 1px;
+        background: var(--gold);
+        display: block;
+      }
+
+      .about-hero h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        font-weight: 300;
+        color: var(--cream);
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+      }
+
+      .about-hero h1 em {
+        font-style: italic;
+        color: var(--gold-light);
+      }
+
+      .hero-sub {
+        margin-top: 24px;
+        font-size: 1rem;
+        color: rgba(242, 237, 228, 0.65);
+        max-width: 560px;
+        letter-spacing: 0.02em;
+      }
+
+      /* ── SUB NAV ── */
+      .sub-nav {
+        background: var(--dark);
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 72px;
+        z-index: 90;
+      }
+
+      .sub-nav-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 60px;
+        display: flex;
+        gap: 0;
+      }
+
+      .sub-nav a {
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(242, 237, 228, 0.5);
+        text-decoration: none;
+        padding: 18px 28px;
+        border-bottom: 2px solid transparent;
+        transition:
+          color 0.3s,
+          border-color 0.3s;
+        white-space: nowrap;
+      }
+
+      .sub-nav a:hover {
+        color: var(--cream);
+      }
+      .sub-nav a.active {
+        color: var(--gold);
+        border-bottom-color: var(--gold);
+      }
+
+      /* ── SHARED SECTION STYLES ── */
+      section {
+        position: relative;
+      }
+
+      .section-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+
+      .section-label::before {
+        content: "";
+        width: 28px;
+        height: 1px;
+        background: var(--gold);
+        display: block;
+      }
+
+      h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.2rem, 4vw, 3.6rem);
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        color: var(--dark);
+      }
+
+      h2 em {
+        font-style: italic;
+        color: var(--forest);
+      }
+
+      /* ── OVERVIEW SECTION ── */
+      #overview {
+        background: var(--warm-white);
+        padding: 100px 0;
+      }
+
+      .overview-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 80px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: start;
+      }
+
+      .overview-left {
+      }
+
+      .overview-left p {
+        margin-top: 28px;
+        color: var(--mid);
+        font-size: 1rem;
+        line-height: 1.8;
+      }
+
+      .overview-left p + p {
+        margin-top: 20px;
+      }
+
+      .brand-statement {
+        margin-top: 48px;
+        padding: 32px 36px;
+        border-left: 3px solid var(--gold);
+        background: rgba(184, 154, 90, 0.06);
+      }
+
+      .brand-statement p {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.5rem;
+        font-weight: 400;
+        font-style: italic;
+        color: var(--dark);
+        line-height: 1.5;
+        margin-top: 0 !important;
+      }
+
+      .overview-right {
+      }
+
+      .overview-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+        background: var(--border);
+        border: 1px solid var(--border);
+        margin-bottom: 40px;
+      }
+
+      .stat-block {
+        background: var(--warm-white);
+        padding: 32px 28px;
+        text-align: center;
+      }
+
+      .stat-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 3rem;
+        font-weight: 300;
+        color: var(--dark);
+        line-height: 1;
+      }
+
+      .stat-num sup {
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--gold);
+      }
+
+      .stat-label {
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--mid);
+        margin-top: 8px;
+      }
+
+      .subpage-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        background: var(--border);
+        border: 1px solid var(--border);
+      }
+
+      .subpage-card {
+        background: var(--warm-white);
+        padding: 22px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+        color: var(--dark);
+        transition: background 0.3s;
+        cursor: pointer;
+      }
+
+      .subpage-card:hover {
+        background: rgba(184, 154, 90, 0.08);
+      }
+
+      .subpage-card-title {
+        font-size: 0.88rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+      }
+
+      .subpage-card-desc {
+        font-size: 0.78rem;
+        color: var(--mid);
+        margin-top: 3px;
+      }
+
+      .subpage-card-arrow {
+        color: var(--gold);
+        font-size: 1.1rem;
+        transition: transform 0.3s;
+      }
+
+      .subpage-card:hover .subpage-card-arrow {
+        transform: translateX(4px);
+      }
+
+      /* ── OUR STORY ── */
+      #story {
+        background: var(--dark);
+        padding: 100px 0;
+      }
+
+      #story h2 {
+        color: var(--cream);
+      }
+      #story h2 em {
+        color: var(--gold-light);
+      }
+
+      .story-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 80px;
+      }
+
+      .story-top {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        margin-bottom: 80px;
+        align-items: start;
+      }
+
+      .story-text p {
+        color: rgba(242, 237, 228, 0.65);
+        font-size: 1rem;
+        line-height: 1.85;
+        margin-top: 28px;
+      }
+
+      .story-text p + p {
+        margin-top: 18px;
+      }
+
+      .story-callout {
+        background: rgba(184, 154, 90, 0.08);
+        border: 1px solid var(--border);
+        padding: 48px 40px;
+        margin-top: 0;
+      }
+
+      .story-callout-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: var(--gold);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+      }
+
+      .callout-item {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .callout-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+        margin-top: 10px;
+        flex-shrink: 0;
+      }
+
+      .callout-item span {
+        font-size: 0.9rem;
+        color: rgba(242, 237, 228, 0.7);
+        line-height: 1.7;
+      }
+
+      /* TIMELINE */
+      .timeline-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.8rem;
+        font-weight: 300;
+        color: var(--cream);
+        margin-bottom: 48px;
+        letter-spacing: 0.02em;
+      }
+
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        position: relative;
+        padding-left: 40px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: var(--border);
+      }
+
+      .timeline-item {
+        position: relative;
+        padding: 0 0 40px 32px;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -4px;
+        top: 8px;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--gold);
+      }
+
+      .timeline-year {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        color: var(--gold);
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+
+      .timeline-event {
+        font-size: 0.92rem;
+        color: rgba(242, 237, 228, 0.75);
+        line-height: 1.6;
+      }
+
+      .timeline-event strong {
+        color: var(--cream);
+        font-weight: 400;
+      }
+
+      /* ── HOW WE OPERATE ── */
+      #operate {
+        background: var(--cream);
+        padding: 100px 0;
+      }
+
+      .operate-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 80px;
+      }
+
+      .operate-intro {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        margin-bottom: 80px;
+        align-items: start;
+      }
+
+      .operate-intro p {
+        color: var(--mid);
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-top: 28px;
+      }
+
+      .model-box {
+        background: var(--dark);
+        padding: 40px;
+        color: var(--cream);
+      }
+
+      .model-box-title {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+
+      .model-chain {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .model-chip {
+        font-size: 0.76rem;
+        font-weight: 400;
+        letter-spacing: 0.06em;
+        color: rgba(242, 237, 228, 0.8);
+        background: rgba(184, 154, 90, 0.12);
+        border: 1px solid rgba(184, 154, 90, 0.25);
+        padding: 6px 14px;
+      }
+
+      .model-plus {
+        color: var(--gold);
+        font-size: 1rem;
+      }
+
+      .lifecycle-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.8rem;
+        font-weight: 300;
+        color: var(--dark);
+        margin-bottom: 48px;
+      }
+
+      .lifecycle-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 2px;
+        background: var(--border);
+        border: 1px solid var(--border);
+        margin-bottom: 60px;
+      }
+
+      .lifecycle-step {
+        background: var(--warm-white);
+        padding: 28px 20px;
+        text-align: center;
+        position: relative;
+      }
+
+      .lifecycle-step::after {
+        content: "→";
+        position: absolute;
+        right: -12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gold);
+        font-size: 0.9rem;
+        z-index: 2;
+      }
+
+      .lifecycle-step:last-child::after {
+        display: none;
+      }
+
+      .step-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2rem;
+        font-weight: 300;
+        color: rgba(184, 154, 90, 0.35);
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+
+      .step-name {
+        font-size: 0.76rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--dark);
+        margin-bottom: 8px;
+      }
+
+      .step-desc {
+        font-size: 0.76rem;
+        color: var(--mid);
+        line-height: 1.5;
+      }
+
+      .quality-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        background: var(--border);
+        border: 1px solid var(--border);
+      }
+
+      .quality-block {
+        background: var(--warm-white);
+        padding: 32px 28px;
+      }
+
+      .quality-icon {
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+      }
+
+      .quality-title {
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--dark);
+        margin-bottom: 10px;
+      }
+
+      .quality-desc {
+        font-size: 0.84rem;
+        color: var(--mid);
+        line-height: 1.7;
+      }
+
+      /* ── DIVISIONS ── */
+      #divisions {
+        background: var(--olive);
+        padding: 100px 0;
+      }
+
+      #divisions h2 {
+        color: var(--cream);
+      }
+      #divisions h2 em {
+        color: var(--gold-light);
+      }
+
+      .divisions-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 80px;
+      }
+
+      .divisions-intro {
+        max-width: 600px;
+        margin-bottom: 60px;
+      }
+
+      .divisions-intro p {
+        color: rgba(242, 237, 228, 0.6);
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-top: 20px;
+      }
+
+      .divisions-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+        background: rgba(184, 154, 90, 0.15);
+        border: 1px solid rgba(184, 154, 90, 0.15);
+      }
+
+      .division-card {
+        background: rgba(26, 26, 20, 0.7);
+        padding: 32px 28px;
+        transition: background 0.3s;
+        cursor: default;
+      }
+
+      .division-card:hover {
+        background: rgba(26, 26, 20, 0.9);
+      }
+
+      .div-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.8rem;
+        font-weight: 300;
+        color: rgba(184, 154, 90, 0.4);
+        margin-bottom: 16px;
+      }
+
+      .div-name {
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--cream);
+        margin-bottom: 12px;
+      }
+
+      .div-desc {
+        font-size: 0.8rem;
+        color: rgba(242, 237, 228, 0.55);
+        line-height: 1.7;
+      }
+
+      /* ── LEADERSHIP ── */
+      #leadership {
+        background: var(--warm-white);
+        padding: 100px 0;
+      }
+
+      .leadership-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 80px;
+      }
+
+      .leadership-intro {
+        max-width: 620px;
+        margin-bottom: 60px;
+      }
+
+      .leadership-intro p {
+        color: var(--mid);
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-top: 20px;
+      }
+
+      .leaders-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        background: var(--border);
+        border: 1px solid var(--border);
+        margin-bottom: 48px;
+      }
+
+      .leader-card {
+        background: var(--warm-white);
+        padding: 40px 32px;
+      }
+
+      .leader-avatar {
+        width: 72px;
+        height: 72px;
+        border-radius: 0;
+        background: var(--dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.6rem;
+        font-weight: 300;
+        color: var(--gold);
+      }
+
+      .leader-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: var(--dark);
+        margin-bottom: 4px;
+      }
+
+      .leader-role {
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+
+      .leader-bio {
+        font-size: 0.84rem;
+        color: var(--mid);
+        line-height: 1.75;
+        border-top: 1px solid var(--border);
+        padding-top: 20px;
+      }
+
+      /* ── CERTIFICATIONS ── */
+      #certifications {
+        background: var(--dark);
+        padding: 100px 0;
+      }
+
+      #certifications h2 {
+        color: var(--cream);
+      }
+      #certifications h2 em {
+        color: var(--gold-light);
+      }
+
+      .cert-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 80px;
+      }
+
+      .cert-intro {
+        max-width: 580px;
+        margin-bottom: 60px;
+      }
+
+      .cert-intro p {
+        color: rgba(242, 237, 228, 0.6);
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-top: 20px;
+      }
+
+      .cert-groups {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+        background: rgba(184, 154, 90, 0.15);
+        border: 1px solid rgba(184, 154, 90, 0.15);
+        margin-bottom: 60px;
+      }
+
+      .cert-group {
+        background: rgba(26, 26, 20, 0.7);
+        padding: 40px;
+      }
+
+      .cert-group-title {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 28px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .cert-item {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 20px;
+        align-items: flex-start;
+      }
+
+      .cert-badge {
+        background: rgba(184, 154, 90, 0.12);
+        border: 1px solid var(--border);
+        padding: 6px 10px;
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        color: var(--gold);
+        text-transform: uppercase;
+        white-space: nowrap;
+        margin-top: 2px;
+      }
+
+      .cert-item-text strong {
+        display: block;
+        font-size: 0.86rem;
+        color: var(--cream);
+        font-weight: 400;
+        margin-bottom: 4px;
+      }
+
+      .cert-item-text span {
+        font-size: 0.78rem;
+        color: rgba(242, 237, 228, 0.5);
+        line-height: 1.5;
+      }
+
+      .awards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        background: rgba(184, 154, 90, 0.15);
+        border: 1px solid rgba(184, 154, 90, 0.15);
+      }
+
+      .award-card {
+        background: rgba(26, 26, 20, 0.7);
+        padding: 32px 28px;
+      }
+
+      .award-year {
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 10px;
+      }
+
+      .award-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.15rem;
+        font-weight: 400;
+        color: var(--cream);
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+
+      .award-body {
+        font-size: 0.78rem;
+        color: rgba(242, 237, 228, 0.5);
+        line-height: 1.6;
+      }
+
+      /* ── CLOSING CTA ── */
+      .closing-cta {
+        background: var(--forest);
+        padding: 100px 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .closing-cta::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at 50% 100%,
+          rgba(184, 154, 90, 0.15) 0%,
+          transparent 60%
+        );
+      }
+
+      .closing-cta h2 {
+        color: var(--cream);
+        position: relative;
+      }
+
+      .closing-cta h2 em {
+        color: var(--gold-light);
+      }
+
+      .closing-cta p {
+        color: rgba(242, 237, 228, 0.6);
+        font-size: 1rem;
+        max-width: 500px;
+        margin: 20px auto 40px;
+        position: relative;
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        position: relative;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--dark);
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        padding: 16px 36px;
+        text-decoration: none;
+        transition: background 0.3s;
+      }
+
+      .btn-primary:hover {
+        background: var(--gold-light);
+      }
+
+      .btn-outline {
+        display: inline-block;
+        border: 1px solid rgba(242, 237, 228, 0.35);
+        color: rgba(242, 237, 228, 0.8);
+        font-size: 0.74rem;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        padding: 16px 36px;
+        text-decoration: none;
+        transition:
+          border-color 0.3s,
+          color 0.3s;
+      }
+
+      .btn-outline:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--dark);
+        padding: 60px 80px 40px;
+        border-top: 1px solid var(--border);
+      }
+
+      .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 60px;
+        margin-bottom: 48px;
+      }
+
+      .footer-brand {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: var(--cream);
+        margin-bottom: 16px;
+        letter-spacing: 0.06em;
+      }
+
+      .footer-tagline {
+        font-size: 0.82rem;
+        color: rgba(242, 237, 228, 0.45);
+        line-height: 1.7;
+        max-width: 280px;
+      }
+
+      .footer-col-title {
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .footer-links a {
+        font-size: 0.82rem;
+        color: rgba(242, 237, 228, 0.5);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: var(--gold);
+      }
+
+      .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 32px;
+        border-top: 1px solid rgba(184, 154, 90, 0.12);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-copy {
+        font-size: 0.74rem;
+        color: rgba(242, 237, 228, 0.3);
+      }
+
+      /* ── ANIMATIONS ── */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 900px) {
+        nav {
+          padding: 0 24px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .about-hero-content {
+          padding: 40px 32px;
+        }
+        .overview-grid,
+        .story-top,
+        .operate-intro {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .lifecycle-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .lifecycle-step::after {
+          display: none;
+        }
+        .divisions-grid,
+        .leaders-grid,
+        .awards-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .cert-groups {
+          grid-template-columns: 1fr;
+        }
+        .quality-row {
+          grid-template-columns: 1fr;
+        }
+        .footer-inner {
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+        }
+        .overview-inner,
+        .story-inner,
+        .operate-inner,
+        .divisions-inner,
+        .leadership-inner,
+        .cert-inner {
+          padding: 0 24px;
+        }
+        .closing-cta {
+          padding: 60px 24px;
+        }
+        footer {
+          padding: 60px 24px 40px;
+        }
+        .sub-nav-inner {
+          padding: 0 12px;
+          overflow-x: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a href="/" class="nav-logo">VAMA Projects</a>
+      <ul class="nav-links">
+        <li><a href="#">What We Do</a></li>
+        <li><a href="#">Our Products</a></li>
+        <li><a href="#">Industries</a></li>
+        <li><a href="#" class="active">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Insights</a></li>
+      </ul>
+      <a href="/contact" class="nav-cta">Start a Project</a>
+    </nav>
+
+    <!-- HERO -->
+    <div class="about-hero">
+      <div class="about-hero-bg"></div>
+      <div class="about-hero-content">
+        <div class="hero-label">About VAMA Projects</div>
+        <h1>Built to Deliver.<br /><em>End to End.</em></h1>
+        <p class="hero-sub">
+          India's integrated experience and infrastructure company — designing,
+          building, and operating world-class immersive environments under one
+          contract, one team.
+        </p>
+      </div>
+    </div>
+
+    <!-- SUB NAV -->
+    <div class="sub-nav">
+      <div class="sub-nav-inner">
+        <a href="#overview" class="active">Overview</a>
+        <a href="#story">Our Story</a>
+        <a href="#operate">How We Operate</a>
+        <a href="#divisions">Our Divisions</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#certifications">Certifications</a>
+      </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <section id="overview">
+      <div class="overview-grid">
+        <div class="overview-left fade-up">
+          <div class="section-label">Company Overview</div>
+          <h2>One Company.<br /><em>Every Layer.</em></h2>
+          <p>
+            VAMA Projects is India's only integrated experience and
+            infrastructure company. We design, build, integrate technology into,
+            and operate world-class experiential environments — museums, science
+            centres, heritage sites, experience centres, and themed attractions.
+          </p>
+          <p>
+            Where most companies cover one piece of the delivery chain, VAMA
+            covers all of it. Civil infrastructure, electrical and MEP, museum
+            technology, digital content, mechatronics, and operations and
+            maintenance — planned and delivered by one team, under one contract.
+          </p>
+          <p>
+            The result is an environment that doesn't just open beautifully. It
+            continues to perform, engage, and endure for years after the ribbon
+            is cut.
+          </p>
+          <div class="brand-statement">
+            <p>
+              "We design the environments people remember, build the
+              infrastructure that makes them possible, and operate them with the
+              excellence that keeps them thriving."
+            </p>
+          </div>
+        </div>
+        <div class="overview-right fade-up">
+          <div class="overview-stats">
+            <div class="stat-block">
+              <div class="stat-num">20<sup>+</sup></div>
+              <div class="stat-label">Years of Experience</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-num">75<sup>+</sup></div>
+              <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-num">18<sup>+</sup></div>
+              <div class="stat-label">States Covered</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-num">7</div>
+              <div class="stat-label">Product Lines</div>
+            </div>
+          </div>
+          <div class="subpage-cards">
+            <a href="#story" class="subpage-card">
+              <div>
+                <div class="subpage-card-title">Our Story</div>
+                <div class="subpage-card-desc">
+                  How VAMA was built and where it is headed.
+                </div>
+              </div>
+              <div class="subpage-card-arrow">→</div>
+            </a>
+            <a href="#operate" class="subpage-card">
+              <div>
+                <div class="subpage-card-title">How We Operate</div>
+                <div class="subpage-card-desc">
+                  Our integrated delivery model, from brief to handover.
+                </div>
+              </div>
+              <div class="subpage-card-arrow">→</div>
+            </a>
+            <a href="#leadership" class="subpage-card">
+              <div>
+                <div class="subpage-card-title">Leadership Team</div>
+                <div class="subpage-card-desc">
+                  The people who lead VAMA's divisions and projects.
+                </div>
+              </div>
+              <div class="subpage-card-arrow">→</div>
+            </a>
+            <a href="#certifications" class="subpage-card">
+              <div>
+                <div class="subpage-card-title">Certifications & Awards</div>
+                <div class="subpage-card-desc">
+                  Our credentials, certifications, and industry recognition.
+                </div>
+              </div>
+              <div class="subpage-card-arrow">→</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR STORY -->
+    <section id="story">
+      <div class="story-inner">
+        <div class="story-top">
+          <div class="story-text fade-up">
+            <div class="section-label">Our Story</div>
+            <h2>A Gap in the Market<br /><em>Became Our Purpose.</em></h2>
+            <p>
+              VAMA Projects was founded with one clear observation: the Indian
+              market was delivering museums and experiential spaces in pieces.
+              Design firms couldn't build. Civil contractors couldn't create
+              experiences. AV companies couldn't handle the infrastructure. No
+              one was accountable for the full outcome.
+            </p>
+            <p>
+              We built VAMA to close that gap — an integrated company that
+              brings every capability in-house, so that clients deal with one
+              team, sign one contract, and receive one finished environment that
+              works as intended from day one.
+            </p>
+            <p>
+              Over two decades, we've grown from a regional project executor to
+              a multi-division national company with seven structured product
+              lines and an active international pipeline — without losing the
+              on-ground accountability that defines how we work.
+            </p>
+          </div>
+          <div class="story-callout fade-up">
+            <div class="story-callout-title">Where We Are Today</div>
+            <div class="callout-item">
+              <div class="callout-dot"></div>
+              <span
+                >Eight in-house divisions covering every layer of experiential
+                project delivery</span
+              >
+            </div>
+            <div class="callout-item">
+              <div class="callout-dot"></div>
+              <span
+                >Seven structured product lines — India's first modular
+                experiential infrastructure portfolio</span
+              >
+            </div>
+            <div class="callout-item">
+              <div class="callout-dot"></div>
+              <span
+                >Completed projects across 18+ states for government,
+                institutional, and corporate clients</span
+              >
+            </div>
+            <div class="callout-item">
+              <div class="callout-dot"></div>
+              <span
+                >Active O&M contracts across multiple landmark
+                institutions</span
+              >
+            </div>
+            <div class="callout-item">
+              <div class="callout-dot"></div>
+              <span
+                >Export-ready product systems for the Middle East, Africa, and
+                Southeast Asia</span
+              >
+            </div>
+            <div class="callout-item">
+              <div class="callout-dot"></div>
+              <span
+                >In-house mechatronics division — the only one of its kind in
+                Indian experiential delivery</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div class="timeline-title">Key Milestones</div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">Foundation</div>
+              <div class="timeline-event">
+                <strong>VAMA Projects established</strong> — Founded to address
+                the fragmented delivery model in India's experiential
+                infrastructure sector.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">Early Growth</div>
+              <div class="timeline-event">
+                <strong>First major government museum project</strong> —
+                Delivered under a single integrated contract, proving the model
+                works at institutional scale.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">Expansion</div>
+              <div class="timeline-event">
+                <strong>Civil and MEP division formalised</strong> — Full EPC
+                capability established, making VAMA a genuine end-to-end
+                contractor, not just a design and AV firm.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">Innovation</div>
+              <div class="timeline-event">
+                <strong>MechaSense division launched</strong> — In-house
+                robotics, animatronics, and mechatronics capability established,
+                differentiating VAMA in the market.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">Productisation</div>
+              <div class="timeline-event">
+                <strong>Seven product lines structured</strong> — MuseXpress,
+                DinoWorld, SciBox, LegacyVault, ExhibitX, PrefabX, and
+                MechaSense launched as India's first modular experiential
+                product portfolio.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">Today</div>
+              <div class="timeline-event">
+                <strong>National and international pipeline active</strong> —
+                Pan-India delivery with growing export capability across the
+                Middle East, Africa, and Southeast Asia.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE OPERATE -->
+    <section id="operate">
+      <div class="operate-inner">
+        <div class="operate-intro">
+          <div class="operate-intro" style="display: block">
+            <div class="section-label">How We Operate</div>
+            <h2>One Contract.<br /><em>Total Accountability.</em></h2>
+            <p>
+              VAMA does not operate as separate departments that hand off to
+              each other. Every division — civil, electrical, AV, content,
+              mechatronics — works under a single project manager on a single
+              contract. The client has one point of contact and one point of
+              accountability throughout the project lifecycle.
+            </p>
+            <p>
+              This is what makes the difference between a space that opens
+              beautifully and one that continues to perform for years.
+            </p>
+          </div>
+          <div class="model-box" style="margin-top: 40px">
+            <div class="model-box-title">
+              The VAMA Integrated Delivery Model
+            </div>
+            <div class="model-chain">
+              <span class="model-chip">Civil Infrastructure</span>
+              <span class="model-plus">+</span>
+              <span class="model-chip">Electrical & MEP</span>
+              <span class="model-plus">+</span>
+              <span class="model-chip">Museum Technology</span>
+              <span class="model-plus">+</span>
+              <span class="model-chip">Digital Content</span>
+              <span class="model-plus">+</span>
+              <span class="model-chip">Mechatronics</span>
+              <span class="model-plus">+</span>
+              <span class="model-chip">O&M</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div class="lifecycle-title">Project Lifecycle — Six Stages</div>
+          <div class="lifecycle-grid">
+            <div class="lifecycle-step">
+              <div class="step-num">01</div>
+              <div class="step-name">Discovery</div>
+              <div class="step-desc">
+                Project scope, site conditions, budget, and timeline aligned
+                into a single brief.
+              </div>
+            </div>
+            <div class="lifecycle-step">
+              <div class="step-num">02</div>
+              <div class="step-name">Design</div>
+              <div class="step-desc">
+                Concept, narrative, and technical design across all divisions
+                simultaneously.
+              </div>
+            </div>
+            <div class="lifecycle-step">
+              <div class="step-num">03</div>
+              <div class="step-name">Build</div>
+              <div class="step-desc">
+                Civil construction, electrical, and prefabrication with
+                milestone reporting.
+              </div>
+            </div>
+            <div class="lifecycle-step">
+              <div class="step-num">04</div>
+              <div class="step-name">Integrate</div>
+              <div class="step-desc">
+                AV, technology, mechatronics, interactives, and content loaded
+                and configured.
+              </div>
+            </div>
+            <div class="lifecycle-step">
+              <div class="step-num">05</div>
+              <div class="step-name">Commission</div>
+              <div class="step-desc">
+                Full system testing, snag resolution, staff training, and client
+                handover.
+              </div>
+            </div>
+            <div class="lifecycle-step">
+              <div class="step-num">06</div>
+              <div class="step-name">Operate</div>
+              <div class="step-desc">
+                AMC, technology servicing, exhibit upgrades, and ongoing
+                support.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quality-row fade-up">
+          <div class="quality-block">
+            <div class="quality-icon">⬡</div>
+            <div class="quality-title">ISO Certified Quality</div>
+            <div class="quality-desc">
+              ISO 9001:2015 quality management processes applied across all
+              projects. Every stage documented to the standard government and
+              institutional procurement requires.
+            </div>
+          </div>
+          <div class="quality-block">
+            <div class="quality-icon">⬡</div>
+            <div class="quality-title">Audit-Ready Documentation</div>
+            <div class="quality-desc">
+              Milestone reports, compliance certificates, and handover documents
+              structured for government audit requirements from day one — not
+              retrofitted at the end.
+            </div>
+          </div>
+          <div class="quality-block">
+            <div class="quality-icon">⬡</div>
+            <div class="quality-title">Milestone Payment Compatibility</div>
+            <div class="quality-desc">
+              VAMA's project management framework is built to align with
+              government and institutional milestone-linked payment structures
+              and disbursement cycles.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVISIONS -->
+    <section id="divisions">
+      <div class="divisions-inner">
+        <div class="divisions-intro fade-up">
+          <div class="section-label">Our Divisions</div>
+          <h2>Eight In-House<br /><em>Capabilities.</em></h2>
+          <p>
+            Every division operates under the same roof, on the same project,
+            under the same contract. No outsourcing of core delivery. No
+            pointing at other vendors when something goes wrong.
+          </p>
+        </div>
+        <div class="divisions-grid fade-up">
+          <div class="division-card">
+            <div class="div-num">01</div>
+            <div class="div-name">Digital Content & Interpretation</div>
+            <div class="div-desc">
+              In-house scriptwriting, AV content production, interactive media,
+              and archival digitisation. Stories told well, not sourced out.
+            </div>
+          </div>
+          <div class="division-card">
+            <div class="div-num">02</div>
+            <div class="div-name">Museum Technology</div>
+            <div class="div-desc">
+              AV systems, projection mapping, AR/VR, interactive displays,
+              SCADA, and show control integration — designed and commissioned
+              in-house.
+            </div>
+          </div>
+          <div class="division-card">
+            <div class="div-num">03</div>
+            <div class="div-name">Civil & Infrastructure</div>
+            <div class="div-desc">
+              Museum civil fit-out, structural work, gallery partitioning, and
+              site development. ISO certified. Government class compliant.
+            </div>
+          </div>
+          <div class="division-card">
+            <div class="div-num">04</div>
+            <div class="div-name">Electrical & MEP</div>
+            <div class="div-desc">
+              LT/HT systems, power distribution, lighting design, backup
+              systems, smart controls, and building services for experiential
+              environments.
+            </div>
+          </div>
+          <div class="division-card">
+            <div class="div-num">05</div>
+            <div class="div-name">Execution & Project Management</div>
+            <div class="div-desc">
+              Multi-division coordination, quality control, and milestone
+              delivery. One project manager. One contract. Complete
+              accountability.
+            </div>
+          </div>
+          <div class="division-card">
+            <div class="div-num">06</div>
+            <div class="div-name">Operations & Maintenance</div>
+            <div class="div-desc">
+              Annual Maintenance Contracts covering AV, interactives, civil,
+              electrical, and technology systems — post handover and ongoing.
+            </div>
+          </div>
+          <div class="division-card">
+            <div class="div-num">07</div>
+            <div class="div-name">Mechatronics Integration</div>
+            <div class="div-desc">
+              Robotics, animatronics, sensor-based interactives, embedded
+              controls, and automation. The only in-house mechatronics division
+              in Indian experiential delivery.
+            </div>
+          </div>
+          <div class="division-card">
+            <div class="div-num">08</div>
+            <div class="div-name">Trading & Sourcing</div>
+            <div class="div-desc">
+              AV hardware, display technology, and specialist equipment sourced,
+              quality-checked, and supplied as part of integrated project
+              delivery.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section id="leadership">
+      <div class="leadership-inner">
+        <div class="leadership-intro fade-up">
+          <div class="section-label">Leadership Team</div>
+          <h2>Expertise Behind<br /><em>Every Delivery.</em></h2>
+          <p>
+            VAMA is led by a team with deep expertise across museum development,
+            engineering, technology integration, and project management. Every
+            division has a dedicated leader who is accountable for its output —
+            not a generalist coordinating across outsourced partners.
+          </p>
+        </div>
+        <div class="leaders-grid fade-up">
+          <div class="leader-card">
+            <div class="leader-avatar">RJ</div>
+            <div class="leader-name">Rajesh Joshi</div>
+            <div class="leader-role">Founder & Managing Director</div>
+            <div class="leader-bio">
+              Over two decades leading complex, multi-discipline experiential
+              and infrastructure projects across India. Responsible for overall
+              strategy, major client relationships, and VAMA's product
+              development direction.
+            </div>
+          </div>
+          <div class="leader-card">
+            <div class="leader-avatar">AM</div>
+            <div class="leader-name">Anita Mehta</div>
+            <div class="leader-role">Director — Projects & Delivery</div>
+            <div class="leader-bio">
+              Leads VAMA's project execution across all divisions. Specialises
+              in multi-disciplinary coordination, quality management, and
+              milestone-linked government project delivery. 15+ years in
+              institutional infrastructure.
+            </div>
+          </div>
+          <div class="leader-card">
+            <div class="leader-avatar">VK</div>
+            <div class="leader-name">Vikram Kulkarni</div>
+            <div class="leader-role">Head — Technology & Mechatronics</div>
+            <div class="leader-bio">
+              Built and leads VAMA's MechaSense division and Museum Technology
+              practice. Expertise in AV systems engineering, robotics
+              integration, and show control systems for large-scale experiential
+              environments.
+            </div>
+          </div>
+          <div class="leader-card">
+            <div class="leader-avatar">SP</div>
+            <div class="leader-name">Shruti Patel</div>
+            <div class="leader-role">Head — Design & Content</div>
+            <div class="leader-bio">
+              Leads narrative design, interpretive planning, and content
+              production. Background in museum curation and experiential media.
+              Responsible for ensuring VAMA's environments tell stories that
+              visitors carry with them.
+            </div>
+          </div>
+          <div class="leader-card">
+            <div class="leader-avatar">DN</div>
+            <div class="leader-name">Deepak Nair</div>
+            <div class="leader-role">Head — Civil & Infrastructure</div>
+            <div class="leader-bio">
+              Oversees VAMA's civil, electrical, and MEP delivery.
+              Class-certified across multiple government categories. Manages
+              structural compliance, quality assurance, and site execution
+              across all active projects.
+            </div>
+          </div>
+          <div class="leader-card">
+            <div class="leader-avatar">PS</div>
+            <div class="leader-name">Priya Shah</div>
+            <div class="leader-role">Head — Business Development</div>
+            <div class="leader-bio">
+              Leads VAMA's growth across government, corporate, and
+              international segments. Manages the BD pipeline, segment strategy,
+              and the partner and channel network. 12+ years in institutional
+              sales.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+      <div class="cert-inner">
+        <div class="cert-intro fade-up">
+          <div class="section-label">Certifications & Awards</div>
+          <h2>Credentials Built for<br /><em>Institutional Trust.</em></h2>
+          <p>
+            Government procurement officers and international buyers require
+            verified credentials before shortlisting. Everything VAMA holds is
+            documented, current, and available on request.
+          </p>
+        </div>
+        <div class="cert-groups fade-up">
+          <div class="cert-group">
+            <div class="cert-group-title">
+              Quality & Management Certifications
+            </div>
+            <div class="cert-item">
+              <div class="cert-badge">ISO</div>
+              <div class="cert-item-text">
+                <strong>ISO 9001:2015 — Quality Management System</strong>
+                <span
+                  >Applied across all project delivery. Covers planning,
+                  execution, quality control, and handover documentation.</span
+                >
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-badge">ISO</div>
+              <div class="cert-item-text">
+                <strong
+                  >ISO 14001:2015 — Environmental Management System</strong
+                >
+                <span
+                  >Environmental compliance management across all construction
+                  and installation activities.</span
+                >
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-badge">ISO</div>
+              <div class="cert-item-text">
+                <strong>ISO 45001:2018 — Occupational Health & Safety</strong>
+                <span
+                  >Occupational health and safety management covering all site
+                  operations and project teams.</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="cert-group">
+            <div class="cert-group-title">
+              Government Empanelment & Class Certifications
+            </div>
+            <div class="cert-item">
+              <div class="cert-badge">PWD</div>
+              <div class="cert-item-text">
+                <strong>AA Class Category — Building Works</strong>
+                <span
+                  >Enables VAMA to bid for and execute large-scale government
+                  building and infrastructure contracts at the highest
+                  classification level.</span
+                >
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-badge">PWD</div>
+              <div class="cert-item-text">
+                <strong>Special Category I — Institutional Projects</strong>
+                <span
+                  >Specialist classification for institutional and civic project
+                  execution under state PWD frameworks.</span
+                >
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-badge">GEM</div>
+              <div class="cert-item-text">
+                <strong>GeM Portal Registered</strong>
+                <span
+                  >Registered on the Government e-Marketplace for direct
+                  government procurement across Central and State schemes.</span
+                >
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-badge">ELEC</div>
+              <div class="cert-item-text">
+                <strong>Class A — Electrical Works</strong>
+                <span
+                  >Full Class A electrical contractor certification enabling
+                  VAMA to execute LT/HT electrical works on government
+                  projects.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div
+            class="cert-group-title"
+            style="
+              color: var(--gold);
+              font-size: 0.7rem;
+              letter-spacing: 0.2em;
+              font-weight: 600;
+              text-transform: uppercase;
+              margin-bottom: 28px;
+            "
+          >
+            Industry Awards & Recognition
+          </div>
+          <div class="awards-grid">
+            <div class="award-card">
+              <div class="award-year">Recent</div>
+              <div class="award-name">Dinosaur Museum, Balasinor</div>
+              <div class="award-body">
+                Recognised for innovation in paleontology-themed experiential
+                design and animatronic integration within a public science
+                destination.
+              </div>
+            </div>
+            <div class="award-card">
+              <div class="award-year">Recent</div>
+              <div class="award-name">Sarhad Gatha Museum, Nadabet</div>
+              <div class="award-body">
+                Cited for excellence in heritage interpretation and immersive
+                storytelling at the India–Pakistan border memorial experience.
+              </div>
+            </div>
+            <div class="award-card">
+              <div class="award-year">Recent</div>
+              <div class="award-name">Vadnagar Interpretation Centre</div>
+              <div class="award-body">
+                Recognised for integrating archaeological context with
+                contemporary visitor experience design in a heritage-sensitive
+                environment.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 48px; text-align: center" class="fade-up">
+          <a href="#" class="btn-primary">Download Credentials Document</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <div class="closing-cta">
+      <h2>Ready to Start<br /><em>a Conversation?</em></h2>
+      <p>
+        Whether you have a live project brief or an early-stage idea, our team
+        is the right first call.
+      </p>
+      <div class="cta-row">
+        <a href="/contact" class="btn-primary">Start a Project Enquiry</a>
+        <a href="/contact" class="btn-outline">Speak to Our Team</a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">VAMA Projects</div>
+          <div class="footer-tagline">
+            India's integrated experience and infrastructure company. Design,
+            build, technology, and operations — one team, one contract.
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">What We Do</div>
+          <ul class="footer-links">
+            <li><a href="#">Museum & Experience Solutions</a></li>
+            <li><a href="#">Exhibition Design</a></li>
+            <li><a href="#">Experience Centres</a></li>
+            <li><a href="#">Heritage & Renovation</a></li>
+            <li><a href="#">Visitor Centres</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Products</div>
+          <ul class="footer-links">
+            <li><a href="#">MuseXpress</a></li>
+            <li><a href="#">DinoWorld</a></li>
+            <li><a href="#">SciBox</a></li>
+            <li><a href="#">LegacyVault</a></li>
+            <li><a href="#">ExhibitX</a></li>
+            <li><a href="#">PrefabX</a></li>
+            <li><a href="#">MechaSense</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Insights</a></li>
+            <li><a href="#">People & Partners</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © 2025 VAMA Projects Pvt. Ltd. All rights reserved.
+        </div>
+        <div class="footer-copy">Ahmedabad · Delhi · Mumbai</div>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth sub-nav active state on scroll
+      const sections = document.querySelectorAll("section[id], div[id]");
+      const subLinks = document.querySelectorAll(".sub-nav a");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              subLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === "#" + entry.target.id) {
+                  link.classList.add("active");
+                }
+              });
+            }
+          });
+        },
+        { rootMargin: "-30% 0px -60% 0px" },
+      );
+
+      document
+        .querySelectorAll(
+          "#overview, #story, #operate, #divisions, #leadership, #certifications",
+        )
+        .forEach((el) => {
+          if (el) observer.observe(el);
+        });
+
+      // Fade-up on scroll
+      const fadeEls = document.querySelectorAll(".fade-up");
+      const fadeObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              fadeObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -60px 0px" },
+      );
+
+      fadeEls.forEach((el) => fadeObserver.observe(el));
+    </script>
+  </body>
+</html>
